@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Mao
- *
- * @author mgz
- */
 class Mao {
     
     private $cartas = array();
@@ -27,6 +16,8 @@ class Mao {
         {
             echo "Mao cheia.";
         }
+        
+        $this->seq = $this->seqCartas();
     }
     
      public function isFull()
@@ -41,47 +32,84 @@ class Mao {
         }
     }
     
-    public function seqCartas()
+    private function seqCartas()
     {
-        if()
+        if($this->cartas[0]->valor + 1 == $this->cartas[1]->valor && /*valor 1a imediatamente menor que 2a*/
+           $this->cartas[1]->valor + 1 == $this->cartas[2]->valor && /*valor 2a imediatamente menor que 3a*/
+           $this->cartas[2]->valor + 1 == $this->cartas[3]->valor && /*valor 3a imediatamente menor que 4a*/
+           $this->cartas[3]->valor + 1 == $this->cartas[4]->valor && /*valor 4a imediatamente menor que 5a*/
+           $this->cartas[0]->naipe == $this->cartas[1]->naipe && /*naipe 1a = 2a*/
+           $this->cartas[1]->naipe == $this->cartas[2]->naipe && /*naipe 2a = 3a*/
+           $this->cartas[2]->naipe == $this->cartas[3]->naipe && /*naipe 3a = 4a*/
+           $this->cartas[3]->naipe == $this->cartas[4]->naipe) /*naipe 4a = 5a*/
         {
-            return ("straight flush")
-            if()
+            if($this->cartas[4]->valor == 14)
             {
-                return ("royal flush")
+                return ("royal flush");
+            }
+            else
+            {
+                return ("straight flush");
             }
         }
-        else if()
+        else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
+                $this->cartas[1]->valor == $this->cartas[2]->valor && /*valor 2a = 3a*/
+                $this->cartas[2]->valor == $this->cartas[3]->valor && /*valor 3a = 4a*/
+                $this->cartas[3]->valor != $this->cartas[4]->valor) /*valor 4a != 5a*/
         {
-            return ("quadra")
+            return ("quadra");
         }
-        else if()
+        else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
+                $this->cartas[1]->valor == $this->cartas[2]->valor && /*valor 2a = 3a*/
+                $this->cartas[2]->valor != $this->cartas[3]->valor && /*valor 3a != 4a*/
+                $this->cartas[3]->valor == $this->cartas[4]->valor) /*valor 4a = 5a*/
         {
-            return ("full house")
+            return ("full house");
         }
-        else if()
+        else if($this->cartas[0]->naipe == $this->cartas[1]->naipe && /*naipe 1a = 2a*/
+                $this->cartas[1]->naipe == $this->cartas[2]->naipe && /*naipe 2a = 3a*/
+                $this->cartas[2]->naipe == $this->cartas[3]->naipe && /*naipe 3a = 4a*/
+                $this->cartas[3]->naipe == $this->cartas[4]->naipe) /*naipe 4a = 5a*/
         {
-            return ("flush")
+            return ("flush");
         }
-        else if()
+        else if($this->cartas[0]->valor + 1 == $this->cartas[1]->valor && /*valor 1a imediatamente menor que 2a*/
+                $this->cartas[1]->valor + 1 == $this->cartas[2]->valor && /*valor 2a imediatamente menor que 3a*/
+                $this->cartas[2]->valor + 1 == $this->cartas[3]->valor && /*valor 3a imediatamente menor que 4a*/
+                $this->cartas[3]->valor + 1 == $this->cartas[4]->valor) /*valor 4a imediatamente menor que 5a*/
         {
-            return ("sequencia")
+            return ("sequencia");
         }
-        else if()
+        else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
+                $this->cartas[1]->valor == $this->cartas[2]->valor && /*valor 2a = 3a*/
+                $this->cartas[2]->valor != $this->cartas[3]->valor && /*valor 3a != 4a*/
+                $this->cartas[3]->valor != $this->cartas[4]->valor && /*valor 4a != 5a*/
+                $this->cartas[3]->valor != $this->cartas[2]->valor && /*valor 4a != 3a*/
+                $this->cartas[2]->valor != $this->cartas[0]->valor) /*valor 3a = 1a*/
         {
-            return ("trinca")
+            return ("trinca");
         }
-        else if()
+        else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
+                $this->cartas[1]->valor != $this->cartas[2]->valor && /*valor 2a != 3a*/
+                $this->cartas[2]->valor == $this->cartas[3]->valor && /*valor 3a = 4a*/
+                $this->cartas[3]->valor != $this->cartas[4]->valor && /*valor 4a = 5a*/
+                $this->cartas[3]->valor != $this->cartas[0]->valor) /*valor 4a = 1a*/
         {
-            return ("dois pares")
+            return ("dois pares");
         }
-        else if()
+        else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
+                $this->cartas[1]->valor != $this->cartas[2]->valor && /*valor 2a != 3a*/
+                $this->cartas[2]->valor != $this->cartas[3]->valor && /*valor 3a != 4a*/
+                $this->cartas[3]->valor != $this->cartas[4]->valor && /*valor 4a != 5a*/
+                $this->cartas[2]->valor != $this->cartas[0]->valor && /*valor 3a = 1a*/
+                $this->cartas[3]->valor != $this->cartas[0]->valor && /*valor 4a = 1a*/
+                $this->cartas[2]->valor != $this->cartas[4]->valor) /*valor 3a = 5a*/
         {
-            return ("um par")
+            return ("um par");
         }
-        else()
+        else
         {
-            return ("carta alta")
+            return ("carta alta");
         }
         
     }
