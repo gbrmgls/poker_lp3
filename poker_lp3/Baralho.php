@@ -2,15 +2,14 @@
 
 class Baralho {
     
-    private $maxSize;
+    private $MAXSIZE = 52;
     private $top;
     private $cartas = array();
     
-    public function Baralho($newMaxSize)
+    public function Baralho()
     {
-        $this->maxSize = $newMaxSize;
         $this->top = -1;
-        for($i = 0; $i < 52; $i++)
+        for($i = 0; $i < $this->MAXSIZE; $i++)
         {
             $c = new Carta;
             $this->push($c);
@@ -19,7 +18,7 @@ class Baralho {
     
     public function push($c)
     {
-        if(($this->top + 1) < $this->maxSize)
+        if(($this->top + 1) < $this->MAXSIZE)
         {
             $this->top++;
             $this->cartas[$this->top] += $c;
@@ -61,7 +60,7 @@ class Baralho {
     
     public function isFull()
     {
-        if($this->top == ($this->maxSize - 1))
+        if($this->top == ($this->MAXSIZE - 1))
         {
             return true;
         }
@@ -78,14 +77,20 @@ class Baralho {
         {
             $this->pop();
         }
-        
-        while($this->isFull() == false)
+        for ($j = 0; $j < 52; $j++)
         {
-            for($i = 0; $i < 52; $i++)
-            {
-                $c=new Carta();
-                $this->push($c);
-            }
+            $naipes = $Carta->naipes;
+            $valores = $Carta->valores;
+            $n = array_rand($naipes);
+            $v = array_rand($valores);
+            $nkey = array_search($n, $naipes);
+            $vkey = array_search($v, $valores);
+            unset($naipes[$nkey]);
+            unset($valores[$vkey]);
+            $naipes = array_values($naipes);
+            $valores = array_values($valores);
+            $c = new Carta($i, $j);
+            $this->push($c);
         }
     }
 }
