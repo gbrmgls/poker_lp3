@@ -1,51 +1,48 @@
 <?php
 
 class Baralho {
-    
+
     private $MAXSIZE = 52;
-    private $top;
-    private $cartas = array();
-    
+    private $top = -1;
+    public $cartas = array();
+
     public function Baralho()
     {
-        $this->top = -1;
-        for($i = 0; $i < $this->MAXSIZE; $i++)
-        {
-            $c = new Carta;
-            $this->push($c);
-        }
+      $this->embaralhar();
     }
-    
+
     public function push($c)
     {
         if(($this->top + 1) < $this->MAXSIZE)
         {
             $this->top++;
-            $this->cartas[$this->top] += $c;
+            $this->cartas[$this->top] = $c;
         }
         else
         {
             echo "Tamanho máximo atingido.";
         }
     }
-    
+
     public function pop()
     {
         if($this->top != -1)
         {
-            $this->cartas[$this->top]==null;
+            unset($this->cartas[$this->top]);
+            array_values($this->cartas);
+            $this->top--;
         }
         else
         {
             echo "Pilha vazia!";
         }
     }
-    
+
     public function peek()
     {
         return $this->cartas[top];
     }
-    
+
     public function isEmpty()
     {
         if($this->top == -1)
@@ -57,7 +54,7 @@ class Baralho {
             return false;
         }
     }
-    
+
     public function isFull()
     {
         if($this->top == ($this->MAXSIZE - 1))
@@ -77,17 +74,17 @@ class Baralho {
         {
             $this->pop();
         }
-        
-        for($i = 0; $i < 4; $i++)
+
+        for($i = 1; $i <= 4; $i++)
         {
-            for($j = 0; $j < 13; $j++)
+            for($j = 2; $j <= 14; $j++)
             {
                 $c = new Carta($i, $j);
                 $this->push($c);
             }
         }
-        
+
         shuffle($this->cartas);
-        
+
     }
 }

@@ -1,26 +1,15 @@
 <?php
 
 class Carta {
-    
-    public static $naipes = array("C", "D", "E", "P");
-    public static $valores = array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11 /*J*/, 12 /*Q*/, 13 /*K*/, 14 /*A*/);
-    private $naipe;
-    private $valor;
-    
-    
+
+    //naipes: 1 (C), 2 (D), 3 (E), 4 (P));
+    //valores: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 (J), 12 (Q), 13 (K), 14 (A));
+    public $naipe;
+    public $valor;
+
     public function Carta($n, $v)
     {
-        $naipe = $Carta->naipes[$n];
-        $valor = $Carta->valores[$v];
-    }
-    
-    public function getValor()
-    {
-        return $this->valor;
-    }
-    
-    public function getNaipe() 
-    {
-        return $this->naipe;
+        $this->naipe = $n; //$this->naipes[$n];
+        $this->valor = $v; //$this->valores[$v];
     }
 }
