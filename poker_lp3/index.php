@@ -17,26 +17,14 @@ and open the template in the editor.
             include_once "Jogador.php";
             include_once "Mao.php";
 
-            $B1 = new Baralho();
-            /*for ($i = 0; $i < 52; $i++)
-            {
-                echo "naipe: ".$B1->cartas[$i]->naipe ;
-                echo " ";
-                echo "valor: ".$B1->cartas[$i]->valor;
-                echo "<br>";
-            }*/
-            $J1 = new Jogador("maicon", 19);
-            for ($i = 0; $i < 5; $i++)
-            {
-              $J1->mao->pegarCarta($B1->peek());
-              $B1->pop();
-              echo "naipe: ".$J1->mao->cartas[$i]->naipe;
-              echo " ";
-              echo "valor: ".$J1->mao->cartas[$i]->valor;
-              echo "<br>";
-            }
-            echo $J1->mao->seqCartas();
+            $jogs = array();
+            $n_jogs = $_GET["num"];
 
+            for($i = 0; $i < $n_jogs; $i++)
+            {
+              $jogs[$i] = new Jogador($_GET["nome".$i], $_GET["idade".$i]);
+            }
+            
         ?>
     </body>
 </html>

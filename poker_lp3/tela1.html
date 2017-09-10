@@ -60,6 +60,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde5ee', end
 </head>
   <body onload="jogadores()" background="background.jpg">
         <div id="eoq"<div id="tema"><h1>Poker Simulator</h1></div></div>
+        <form action="index.php" method="GET">
           </br>
           <div id="pl">Players:</div>
           <select id="num" name="num" value=2 onchange="jogadores()">
@@ -79,7 +80,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde5ee', end
           <div id="but"><input type="submit" value="Entrar"></div>
         </form>
       </div>
- 
+
  <script language="javascript">
  function jogadores()
 {
@@ -87,7 +88,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde5ee', end
   var div = document.getElementById("Jogadores");
   div.innerHTML = "";
   for(i = 0;i < x;i++)
-  div.innerHTML += '<div id="pl2"></br></br>Nome:</br><input type="text" name="nome[]" size=10></br>Idade:</br><input type="number" " name="idade[]"></div>';
+  {
+    div.innerHTML += '<div id="pl2"></br></br>Nome:</br><input type="text" id="nome'+i+'" name="nome'+i+'" size=10></br>Idade:</br><input type="number" id="idade'+i+'" name="idade'+i+'"></div>';
+  }
 }
 </script>
 
