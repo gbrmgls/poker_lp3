@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Poker</title>
+    <link rel="icon" type="imagem/png" href="ico.png">
+    <style>
+	select{
+		border-radius:10px;
+		font: bold 14px sans-serif;
+		margin-left:10px;
+	}
+	input[type = "text"]{
+		border-radius:10px;
+		border: 2px solid #456879;
+		height:20px;
+		width:200px;
+		}
+	input[type = "number"]{
+		border-radius:10px;
+		border: 2px solid #456879;
+		size:3;
+		width:40px;
+		height:30px;
+	}
+	input[type = "submit"]
+	{
+		background: rgb(205,229,238); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(205,229,238,1) 0%, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 25%, rgba(200,215,220,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(205,229,238,1) 0%,rgba(242,245,246,1) 0%,rgba(227,234,237,1) 25%,rgba(200,215,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(205,229,238,1) 0%,rgba(242,245,246,1) 0%,rgba(227,234,237,1) 25%,rgba(200,215,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde5ee', endColorstr='#c8d7dc',GradientType=0 ); /* IE6-9 */
+		border-radius:10px;
+		margin:15px;
+		font:normal 12px sans-serif;
+		padding:5px 15px;
+		color:#333;
+	}
+	input[type = "submit"]:hover{
+		color:#06F;
+		}
+	#eoq{
+		background-color:#CCC;
+		border-radius:5px;
+		text-align:center;
+		font:bold 27px sans-serif;
+		color:black;
+		margin:10px;
+		margin-left:500px;
+		margin-right:500px;}
+	#eoq:hover{
+		background-color:#e0f1fc;
+		}
+	#pl{
+		color:white;
+		font:bold 20px sans-serif;
+	}
+	#pl2{
+		color:white;
+		font:bold 16px sans-serif;}
+	</style>
+</head>
+  <body onload="jogadores()" background="background.jpg">
+        <div id="eoq"<div id="tema"><h1>Poker Simulator</h1></div></div>
+          </br>
+          <div id="pl">Players:</div>
+          <select id="num" name="num" value=2 onchange="jogadores()">
+            <option value=2 selected>2 jogadores</option>
+            <option value=3>3 jogadores</option>
+            <option value=4>4 jogadores</option>
+            <option value=5>5 jogadores</option>
+            <option value=6>6 jogadores</option>
+            <option value=7>7 jogadores</option>
+            <option value=8>8 jogadores</option>
+            <option value=9>9 jogadores</option>
+            <option value=10>10 jogadores</option>
+          </select>
+          <div id="Jogadores">
+          </div>
+          </br>
+          <div id="but"><input type="submit" value="Entrar"></div>
+        </form>
+      </div>
+ 
+ <script language="javascript">
+ function jogadores()
+{
+  var x = document.getElementById("num").value;
+  var div = document.getElementById("Jogadores");
+  div.innerHTML = "";
+  for(i = 0;i < x;i++)
+  div.innerHTML += '<div id="pl2"></br></br>Nome:</br><input type="text" name="nome[]" size=10></br>Idade:</br><input type="number" " name="idade[]"></div>';
+}
+</script>
+
+  </body>
+</html>
