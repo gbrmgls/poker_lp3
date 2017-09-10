@@ -1,7 +1,16 @@
 <?php
 
 class Jogador {
-    private $idade;
-    private $mao;
-    private $status;
+
+    public $nome;
+    public $idade;
+    public $status;
+    public $mao;
+
+    public function Jogador($nome, $idade){
+
+      $this->mao = new Mao();
+      $this->nome = $nome;
+      $this->idade = $idade;
+    }
 }

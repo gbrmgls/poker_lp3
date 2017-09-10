@@ -40,7 +40,7 @@ class Baralho {
 
     public function peek()
     {
-        return $this->cartas[top];
+        return $this->cartas[$this->top];
     }
 
     public function isEmpty()

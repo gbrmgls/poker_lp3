@@ -9,7 +9,7 @@ class Carta {
 
     public function Carta($n, $v)
     {
-        $this->naipe = $n; //$this->naipes[$n];
-        $this->valor = $v; //$this->valores[$v];
+        $this->naipe = $n;
+        $this->valor = $v;
     }
 }
