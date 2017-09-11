@@ -20,6 +20,7 @@ and open the template in the editor.
             $jogs = array();
             $n_jogs = $_GET["num"];
             $B1 = new Baralho();
+            $sequencias = array();
 
             for($i = 0; $i < $n_jogs; $i++)
             {
@@ -41,7 +42,7 @@ and open the template in the editor.
               echo "sequencia: ".$jogs[$i]->mao->seqCartas();
               echo "<br><br>";
             }
-
+            
         ?>
     </body>
 </html>
