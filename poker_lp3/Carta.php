@@ -68,7 +68,7 @@ class Carta {
           case 13:
             $this->valor_real = "K";
             break;
-          case 13:
+          case 14:
             $this->valor_real = "A";
             break;
         }
