@@ -46,12 +46,12 @@ class Mao {
         {
             if($this->cartas[4]->valor == 14)
             {
-                $this->seq = "royal flush";
+                $this->seq = "10";
                 return $this->seq;
             }
             else
             {
-                $this->seq = "straight flush";
+                $this->seq = "9";
                 return $this->seq;
             }
         }
@@ -60,7 +60,7 @@ class Mao {
                 $this->cartas[2]->valor == $this->cartas[3]->valor && /*valor 3a = 4a*/
                 $this->cartas[3]->valor != $this->cartas[4]->valor) /*valor 4a != 5a*/
         {
-            $this->seq = "quadra";
+            $this->seq = "8";
             return $this->seq;
         }
         else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
@@ -68,7 +68,7 @@ class Mao {
                 $this->cartas[2]->valor != $this->cartas[3]->valor && /*valor 3a != 4a*/
                 $this->cartas[3]->valor == $this->cartas[4]->valor) /*valor 4a = 5a*/
         {
-            $this->seq = "full house";
+            $this->seq = "7";
             return $this->seq;
         }
         else if($this->cartas[0]->naipe == $this->cartas[1]->naipe && /*naipe 1a = 2a*/
@@ -76,7 +76,7 @@ class Mao {
                 $this->cartas[2]->naipe == $this->cartas[3]->naipe && /*naipe 3a = 4a*/
                 $this->cartas[3]->naipe == $this->cartas[4]->naipe) /*naipe 4a = 5a*/
         {
-            $this->seq = "flush";
+            $this->seq = "6";
             return $this->seq;
         }
         else if($this->cartas[0]->valor + 1 == $this->cartas[1]->valor && /*valor 1a imediatamente menor que 2a*/
@@ -84,7 +84,7 @@ class Mao {
                 $this->cartas[2]->valor + 1 == $this->cartas[3]->valor && /*valor 3a imediatamente menor que 4a*/
                 $this->cartas[3]->valor + 1 == $this->cartas[4]->valor) /*valor 4a imediatamente menor que 5a*/
         {
-            $this->seq = "sequencia";
+            $this->seq = "5";
             return $this->seq;
         }
         else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
@@ -94,7 +94,7 @@ class Mao {
                 $this->cartas[3]->valor != $this->cartas[2]->valor && /*valor 4a != 3a*/
                 $this->cartas[2]->valor != $this->cartas[0]->valor) /*valor 3a = 1a*/
         {
-            $this->seq = "trinca";
+            $this->seq = "4";
             return $this->seq;
         }
         else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
@@ -103,7 +103,7 @@ class Mao {
                 $this->cartas[3]->valor != $this->cartas[4]->valor && /*valor 4a = 5a*/
                 $this->cartas[3]->valor != $this->cartas[0]->valor) /*valor 4a = 1a*/
         {
-            $this->seq =  "dois pares";
+            $this->seq =  "3";
             return $this->seq;
         }
         else if($this->cartas[0]->valor == $this->cartas[1]->valor && /*valor 1a = 2a*/
@@ -114,12 +114,12 @@ class Mao {
                 $this->cartas[3]->valor != $this->cartas[0]->valor && /*valor 4a = 1a*/
                 $this->cartas[2]->valor != $this->cartas[4]->valor) /*valor 3a = 5a*/
         {
-            $this->seq = "um par";
+            $this->seq = "2";
             return $this->seq;
         }
         else
         {
-            $this->seq = "carta alta";
+            $this->seq = "1";
             return $this->seq;
         }
     }

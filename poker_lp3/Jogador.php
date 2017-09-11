@@ -13,6 +13,7 @@ class Jogador {
       $this->mao = new Mao();
       $this->nome = $nome;
       $this->idade = $idade;
+
       if($this->idade < 18)
       {
         echo "<script>alert('JOGADOR ".$this->nome." É MENOR DE IDADE. INAPTO A JOGAR.')</script>";
