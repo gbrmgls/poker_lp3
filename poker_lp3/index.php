@@ -37,12 +37,12 @@ and open the template in the editor.
               echo "MÃO DO JOGADOR ".$jogs[$i]->nome.":<br>";
               for($j = 0; $j < 5; $j++)
               {
-                echo "naipe: ".$jogs[$i]->mao->cartas[$j]->naipe_real." / valor: ".$jogs[$i]->mao->cartas[$j]->valor_real."<br>";
+                echo $jogs[$i]->mao->cartas[$j]->valor_real." DE ".$jogs[$i]->mao->cartas[$j]->naipe_real."<br>";
               }
-              echo "sequencia: ".$jogs[$i]->mao->seqCartas();
+              echo "SEQUÊNCIA: ".$jogs[$i]->mao->seqCartas();
               echo "<br><br>";
             }
-            
+
         ?>
     </body>
 </html>
