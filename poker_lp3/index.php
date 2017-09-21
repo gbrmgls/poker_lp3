@@ -16,6 +16,7 @@ and open the template in the editor.
             include_once "Carta.php";
             include_once "Jogador.php";
             include_once "Mao.php";
+            include_once "Empate.php";
 
             $jogs = array();
             $n_jogs = $_GET["num"];
@@ -42,6 +43,10 @@ and open the template in the editor.
               echo "SEQUÊNCIA: ".$jogs[$i]->mao->seqCartas();
               echo "<br><br>";
             }
+
+            echo "o vencedor é: ".Empate::verificar($jogs, $n_jogs)->nome;
+
+
 
         ?>
     </body>
